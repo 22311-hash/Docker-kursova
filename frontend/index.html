@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveHub - Премиум Автомобилен Каталог</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow-bg"></div>
+  
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <i class="ph ph-steering-wheel"></i>
+        <span>Drive<span>Hub</span></span>
+      </div>
+      
+      <!-- Quick Stats Panel -->
+      <div class="quick-stats">
+        <div class="stat-card" id="stat-total-cars">
+          <i class="ph ph-car-profile"></i>
+          <div>
+            <span class="stat-value" id="val-total-cars">-</span>
+            <span class="stat-label">Автомобила</span>
+          </div>
+        </div>
+        <div class="stat-card" id="stat-fleet-value">
+          <i class="ph ph-currency-eur"></i>
+          <div>
+            <span class="stat-value" id="val-fleet-value">-</span>
+            <span class="stat-label">Обща Стойност</span>
+          </div>
+        </div>
+        <div class="stat-card" id="stat-avg-price">
+          <i class="ph ph-chart-bar"></i>
+          <div>
+            <span class="stat-value" id="val-avg-price">-</span>
+            <span class="stat-label">Ср. Цена</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid-layout">
+      <!-- Left Column: Filters & Create Form -->
+      <section class="sidebar">
+        <!-- Search & Filters -->
+        <div class="glass-card panel-filters">
+          <h2><i class="ph ph-sliders-horizontal"></i> Филтриране</h2>
+          
+          <div class="form-group">
+            <label for="search-input">Търсене</label>
+            <div class="input-with-icon">
+              <i class="ph ph-magnifying-glass"></i>
+              <input type="text" id="search-input" placeholder="Марка, модел, описание...">
+            </div>
+          </div>
+          
+          <div class="filter-row">
+            <div class="form-group">
+              <label for="filter-engine">Двигател</label>
+              <select id="filter-engine">
+                <option value="">Всички</option>
+                <option value="Petrol">Бензин</option>
+                <option value="Diesel">Дизел</option>
+                <option value="Electric">Електрически</option>
+                <option value="Hybrid">Хибрид</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="sort-by">Сортиране</label>
+              <select id="sort-by">
+                <option value="newest">Най-нови</option>
+                <option value="price_asc">Цена (възходяща)</option>
+                <option value="price_desc">Цена (низходяща)</option>
+                <option value="hp_desc">Мощност (низходяща)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Car Form -->
+        <div class="glass-card panel-add-car">
+          <h2><i class="ph ph-plus-circle"></i> Нов Автомобил</h2>
+          <form id="add-car-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="car-brand">Марка *</label>
+                <input type="text" id="car-brand" required placeholder="напр. Porsche">
+              </div>
+              <div class="form-group">
+                <label for="car-model">Модел *</label>
+                <input type="text" id="car-model" required placeholder="напр. 911 GT3">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="car-year">Година *</label>
+                <input type="number" id="car-year" min="1900" max="2027" required placeholder="2024">
+              </div>
+              <div class="form-group">
+                <label for="car-price">Цена (€) *</label>
+                <input type="number" id="car-price" min="0" required placeholder="150000">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="car-engine">Тип Двигател *</label>
+                <select id="car-engine" required>
+                  <option value="Petrol">Бензин</option>
+                  <option value="Diesel">Дизел</option>
+                  <option value="Electric">Електрически</option>
+                  <option value="Hybrid">Хибрид</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="car-hp">Мощност (к.с.) *</label>
+                <input type="number" id="car-hp" min="0" required placeholder="500">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="car-torque">Въртящ момент (Nm) *</label>
+                <input type="number" id="car-torque" min="0" required placeholder="450">
+              </div>
+              <div class="form-group">
+                <label for="car-acceleration">0-100 км/ч (сек) *</label>
+                <input type="number" id="car-acceleration" step="0.1" min="0" required placeholder="3.5">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="car-image">Линк към Изображение *</label>
+              <input type="url" id="car-image" required placeholder="https://images.unsplash.com/... или подобен">
+            </div>
+
+            <div class="form-group">
+              <label for="car-desc">Описание *</label>
+              <textarea id="car-desc" rows="3" required placeholder="Кратка информация за автомобила..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="ph ph-rocket-launch"></i> Добави в каталога
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Right Column: Car Catalog -->
+      <section class="catalog-section">
+        <div class="catalog-header">
+          <h2>Налични автомобили</h2>
+          <span class="results-count" id="results-count">Зареждане...</span>
+        </div>
+        
+        <!-- Car Grid -->
+        <div class="car-grid" id="car-grid">
+          <!-- Dynamically populated via JS -->
+          <div class="loading-state">
+            <i class="ph ph-spinner spinner"></i>
+            <span>Зареждане на каталога...</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 DriveHub. Всички права запазени.</p>
+      <p>Контейнеризация на проект с Docker Compose &bull; Курсова работа по Docker</p>
+      <div class="github-link">
+        <a href="https://github.com/22311-hash/Docker-kursova" target="_blank">
+          <i class="ph ph-github-logo"></i> GitHub Хранилище
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>
