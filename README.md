@@ -87,43 +87,12 @@ docker compose up --build -d
 *   `--build`: Сглобява наново Dockerfile файловете за фронтенда и бекенда.
 *   `-d` (detached mode): Стартира контейнерите във фонов режим.
 
-След успешно стартиране, отворете браузър на адрес:
-👉 **[http://localhost](http://localhost)**
+След успешно стартиране, отворете браузър на адрес: **[http://localhost](http://localhost)**
 
 ### Спиране на Приложението
 
 За да спрете контейнерите и да освободите ресурсите, изпълнете:
 
 ```bash
-docker compose down
-```
 
-Ако искате да изтриете и създадените томове с данни (което ще нулира базата данни), използвайте:
 
-```bash
-docker compose down -v
-```
-
----
-
-## 5. Публикуване на Образите в Docker Hub
-
-За да качите образите в личния си Docker Hub профил (`dankata123`), можете да използвате предоставения PowerShell скрипт или да изпълните следните стъпки ръчно:
-
-1.  Влезте в профила си чрез терминала:
-    ```bash
-    docker login -u dankata123
-    ```
-2.  Изградете и тагнете образите:
-    ```bash
-    # Бекенд
-    docker build -t dankata123/drivehub-backend:latest ./backend
-    
-    # Фронтенд
-    docker build -t dankata123/drivehub-frontend:latest ./frontend
-    ```
-3.  Качете образите в Docker Hub:
-    ```bash
-    docker push dankata123/drivehub-backend:latest
-    docker push dankata123/drivehub-frontend:latest
-    ```
