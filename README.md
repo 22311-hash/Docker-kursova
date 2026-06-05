@@ -5,8 +5,8 @@
 ## Линкове към Хранилищата
 
 *   **GitHub Репозитори:** [https://github.com/22311-hash/Docker-kursova](https://github.com/22311-hash/Docker-kursova)
-*   **Docker Hub - Frontend:** [https://hub.docker.com/r/dankata123/drivehub-frontend](https://hub.docker.com/r/dankata123/drivehub-frontend)
-*   **Docker Hub - Backend:** [https://hub.docker.com/r/dankata123/drivehub-backend](https://hub.docker.com/r/dankata123/drivehub-backend)
+*   **Docker Hub - Frontend:** [https://hub.docker.com/layers/dankata123/drivehub-frontend/latest/images/sha256-bfe1b96e9425bd745be8b6a88876a984fff9e7e73714ab295c963a589d74ef08](https://hub.docker.com/layers/dankata123/drivehub-frontend/latest/images/sha256-bfe1b96e9425bd745be8b6a88876a984fff9e7e73714ab295c963a589d74ef08)
+*   **Docker Hub - Backend:** [https://hub.docker.com/layers/dankata123/drivehub-backend/latest/images/sha256-2158b5333fef4a3813abc10eda8caeec474e071cf8284b6091e360051e1c2a85](https://hub.docker.com/layers/dankata123/drivehub-backend/latest/images/sha256-2158b5333fef4a3813abc10eda8caeec474e071cf8284b6091e360051e1c2a85)
 
 ---
 
